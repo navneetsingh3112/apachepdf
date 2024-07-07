@@ -1,0 +1,23 @@
+
+˜	java:S117V"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼í±®øÿÿÿÿ8ò÷îğ†2J$9c65f27b-d619-4c3f-9afd-cd5c6e33fa7e
+„
+java:S2184³"@Cast one of the operands of this integer division to a "double".(Ô”Ä8ò÷îğ†2J$fc69f28f-c130-4b84-be46-7172817d2aaa
+…
+java:S2184ô"ACast one of the operands of this addition operation to a "float".(²øŞ°8ò÷îğ†2J$9d662b12-637e-41f4-9542-a29aef913959
+
+java:S1192Õ"FDefine a constant instead of duplicating this literal "(INR)" 4 times.(Ğğ¥àşÿÿÿÿ8‚øîğ†2J$95ac9494-bff3-4ead-ab58-1231e8576e43
+ˆ
+java:S1192%"kDefine a constant instead of duplicating this literal "C:\\Users\\Bhavani K\\Desktop\\Nirmala.ttf" 3 times.(éÎ€Õ8¡ğ‡‡2
+	java:S107¬"=Method has 11 parameters, which is greater than 7 authorized.(âƒ™8‚øîğ†2J$9a078c13-7cbf-45ac-bcf0-eb82bfc86853
+‰
+java:S1075"ARefactor your code to get this URI from a customizable parameter.(¦åàÄÿÿÿÿÿ8‚øîğ†2J$632ace5e-bd56-4ee1-ba9d-3cc273628f85
+„
+java:S1075%"ARefactor your code to get this URI from a customizable parameter.(éÎ€Õ8‘øîğ†2J$0bf0440c-ae25-4eff-ae1b-07e8d78fc626
+•
+java:S3776¬"RRefactor this method to reduce its Cognitive Complexity from 46 to the 15 allowed.(âƒ™8‘øîğ†2J$f5f441fb-5eb5-4dbb-af55-f4ba0d606a09
+…
+java:S1075ˆ"ARefactor your code to get this URI from a customizable parameter.(éÎ€Õ8‘øîğ†2J$f3c101e9-dbf6-485d-aaac-7808d65fd605
+_
+java:S1075¨"ARefactor your code to get this URI from a customizable parameter.(éÎ€Õ8Àğ‡‡2
+Š
+java:S6541¬"ÆA "Brain Method" was detected. Refactor it to reduce at least one of the following metrics: LOC from 140 to 64, Complexity from 19 to 14, Nesting Level from 5 to 2, Number of Variables from 47 to 6.(âƒ™8‘øîğ†2J$f11b3738-a5cf-4007-8463-567f35de85ad

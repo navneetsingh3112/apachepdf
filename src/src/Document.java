@@ -2,39 +2,39 @@ import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.common.PDRectangle;
-import org.apache.pdfbox.pdmodel.font.PDFont;
-import org.apache.pdfbox.pdmodel.font.PDType1Font;
-import org.apache.pdfbox.pdmodel.font.Standard14Fonts;
+import org.apache.pdfbox.pdmodel.font.PDType0Font;
 import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 
+import java.io.File;
 import java.io.IOException;
 
-public class DocumentCreation {
+public class Document  {
 
     public static void main(String[] args) throws IOException {
-        DocumentCreation documentCreation = new DocumentCreation();
+        Document documentCreation = new Document();
 
         PDDocument newDocument = new PDDocument();
-        PDPage page1 = documentCreation.createPage(newDocument);
-        PDPage page2 = documentCreation.createPage(newDocument);
+        PDPage page1= documentCreation.createPage(newDocument);
+        PDPage page2= documentCreation.createPage(newDocument);
 
         documentCreation.createContent(newDocument, page1);
         documentCreation.createContentForSecondPage(newDocument, page2);
-        String outputFilePath = "c:/Users/Bhavani K/Desktop/English.pdf";
+        String outputFilePath = "c:/Users/Bhavani K/Desktop/Hindi.pdf";
         documentCreation.savePDF(newDocument, outputFilePath);
 
         newDocument.close();
     }
 
-    public PDPage createPage(PDDocument document) {
+    private PDPage createPage(PDDocument document) throws IOException {
         PDPage page = new PDPage(PDRectangle.A4);
         document.addPage(page);
         return page;
     }
 
-    private void addJLGHeading(PDPageContentStream contentStream, float yOffset) throws IOException {
-        String heading = "JLG/SHG/IL – LOAN CARD CUM FACT SHEET";
-        PDFont font = new PDType1Font(Standard14Fonts.FontName.TIMES_BOLD);
+    private void addJLGHeading(PDPageContentStream contentStream, float yOffset,PDDocument document) throws IOException {
+        String heading = "जेएलजी/एसएचजी/आईएल – ऋण कार्ड सह तथ्य पत्रक";
+        File fontFile = new File("C:\\Users\\Bhavani K\\Desktop\\Hind-Regular.ttf");
+        PDType0Font font = PDType0Font.load(document, fontFile);
         float stringWidth = font.getStringWidth(heading) * 18/ 1000;
         float centerPosition = stringWidth /2;
         contentStream.beginText();
@@ -52,18 +52,17 @@ public class DocumentCreation {
         contentStream.drawImage(pdImage, 40, 800, 100, 20);
 
         // Adding JLG heading
-        addJLGHeading(contentStream, PDRectangle.A4.getHeight() - 30);
+        addJLGHeading(contentStream, PDRectangle.A4.getHeight() - 30,document);
 
         // Adding branch details
         contentStream.beginText();
-        contentStream.setFont(new PDType1Font(Standard14Fonts.FontName.TIMES_ROMAN), 8);
         contentStream.setLeading(13f);
         contentStream.newLineAtOffset(40, 793);
-        contentStream.showText("We understand your world");
+        contentStream.showText("हम आपकी दुनिया को समझते हैं");
         contentStream.newLineAtOffset(10, -40);
         String[] lines = {
-                "Branch Code & Name: Shalini", "Branch Address: Bellandur,Banglore", "Regd.office: 6524726", "GST Regn: 7671671767715","CIN: 5276472547" ,
-                "PAN: FETRET565"
+                "शाखा कोड और नाम: शालिनी", "शाखा पता: बेलंदूर, बैंगलोर", "पंजीकृत कार्यालय: 6524726", "जीएसटी पंजीकरण: 7671671767715", "सीआईएन: 5276472547",
+                "पैन: FETRET565"
         };
         for (String line : lines) {
             contentStream.newLine();
@@ -73,18 +72,18 @@ public class DocumentCreation {
 
         // branch details
         float widthInPoints = 14f * 28.3465f;
-        float heightInPoints = 4 * 29.3465f;
+        float heightInPoints = 4f * 29.3465f;
         contentStream.addRect(40, 643, widthInPoints, heightInPoints);
         contentStream.stroke();
 
         //customer photo
-        float photoWidth = 4.2f* 28.8465f;
-        float photoHeight = 4.2f* 28.3465f;
+        float photoWidth = 4.4f* 28.8465f;
+        float photoHeight = 4.4f* 28.3465f;
         float gap = -60;
-        contentStream.addRect(80 + widthInPoints - 30, 700 - heightInPoints-gap, photoWidth, photoHeight);
+        contentStream.addRect(80 + widthInPoints - 35, 695 - heightInPoints-gap, photoWidth, photoHeight);
         contentStream.stroke();
         PDImageXObject Image = PDImageXObject.createFromFile("C:\\Users\\Bhavani K\\Downloads\\photo.jpg", document);
-        contentStream.drawImage(Image, 80 + widthInPoints - 30, 700 - heightInPoints - gap, photoWidth, photoHeight);
+        contentStream.drawImage(Image, 80 + widthInPoints - 35, 695 - heightInPoints - gap, photoWidth, photoHeight);
 
         contentStream.beginText();
         contentStream.newLineAtOffset(90 + widthInPoints , 650 - gap );
@@ -93,7 +92,7 @@ public class DocumentCreation {
 
         //  customer details
         float width = 18.7f * 28.3465f;
-        float height = 7 * 29.3465f;
+        float height = 7* 29.3465f;
         float newBoxYPosition = 700 - heightInPoints - gap - height - 10;
         contentStream.addRect(40, newBoxYPosition, width , height);
         contentStream.stroke();
@@ -107,24 +106,24 @@ public class DocumentCreation {
         contentStream.setLeading(11f);
         contentStream.newLineAtOffset(50, newBoxYPosition + height);
         String[] line = {
-                "Customer Name & ID: John Doe - 1234",
-                "Loan Account No: 5678901234",
-                "Group Name: AlphaGroup",
-                "Product: AlphaLoan",
-                "Husband Name: Richard Roe",
-                "Customer Address: 1234 Main St, Anytown, Anystate",
+                "ग्राहक का नाम और आईडी: जॉन डो - 1234",
+                "ऋण खाता संख्या: 5678901234",
+                "समूह का नाम: अल्फाग्रुप",
+                "उत्पाद: अल्फालोन",
+                "पति का नाम: रिचर्ड रो",
+                "ग्राहक का पता: 1234 मेन सेंट, एनीटाउन, एनीस्टेट",
                 "",
-                "Disbursed Date: 01-01-2022",
-                "Loan Amount (INR): 50000",
-                "Total Interest Charge (INR): 5000",
-                "Other Up-front charges (INR): 1000",
-                "Processing Fees (INR): 200",
-                "Insurance Amount (INR): 300",
-                "Others(if any) (INR): 100",
-                "Net Disbursed Amount (INR): 55000",
-                "Total Amount to be Paid (INR): 60000",
-                "Annualized Int.Rate (%): 10",
-                "Rate of Interest (%): 10"
+                "वितरित तिथि: 01-01-2022",
+                "ऋण राशि (INR): 50000",
+                "कुल ब्याज शुल्क (INR): 5000",
+                "अन्य अग्रिम शुल्क (INR): 1000",
+                "प्रसंस्करण शुल्क (INR): 200",
+                "बीमा राशि (INR): 300",
+                "अन्य (यदि कोई हो) (INR): 100",
+                "शुद्ध वितरित राशि (INR): 55000",
+                "कुल राशि भुगतान किया जाएगा (INR): 60000",
+                "वार्षिक ब्याज दर (%): 10",
+                "ब्याज दर (%): 10"
         };
         for (String i : line) {
             contentStream.newLine();
@@ -135,44 +134,43 @@ public class DocumentCreation {
         contentStream.beginText();
         contentStream.newLineAtOffset(50 + midPoint + 10, newBoxYPosition + height);
         String[] additionalLines = {
-    "Mobile No: 1234567890",
-    "Father Name: John Doe Sr.",
-    "Co-Applicant Name(if applicable): Jane Doe",
-    "Centre Place(Address): 1234 Main St, Anytown, Anystate",
-    "",
-    "Loan Term (in Months): 12",
-    "Repayment Frequency: Monthly",
-    "No of Instalments of Repayment: 12",
-    "Repayment Date: 01-01-2023",
-    "Repayment Amount (INR): 5000",
-    "Lending Type: Personal Loan",
-    "Loan Cycle: 1",
-    "Bank Acct No: 123456789012",
-    "Purpose: Home Renovation",
-    "Beneficiary A/C Name: John Doe",
-    "Bank Name: ABC Bank",
-    "Netoff Account/Amount: 123456789012"
-};
+                "मोबाइल नंबर: 1234567890",
+                "पिता का नाम: जॉन डो सीनियर",
+                "सह-आवेदक का नाम (यदि लागू हो): जेन डो",
+                "सेंटर प्लेस (पता): 1234 मेन सेंट, एनीटाउन, एनीस्टेट",
+                "",
+                "ऋण अवधि (महीनों में): 12",
+                "पुनर्भुगतान आवृत्ति: मासिक",
+                "पुनर्भुगतान की किस्तों की संख्या: 12",
+                "पुनर्भुगतान तिथि: 01-01-2023",
+                "पुनर्भुगतान राशि (INR): 5000",
+                "ऋण प्रकार: व्यक्तिगत ऋण",
+                "ऋण चक्र: 1",
+                "बैंक खाता संख्या: 123456789012",
+                "उद्देश्य: गृह नवीनीकरण",
+                "लाभार्थी खाता नाम: जॉन डो",
+                "बैंक का नाम: ABC बैंक",
+                "नेटऑफ खाता/राशि: 123456789012"
+        };
         for (String j : additionalLines) {
             contentStream.newLine();
             contentStream.showText(j);
         }
         contentStream.endText();
-        createTable(contentStream, 40, newBoxYPosition - 5, 530, 400, 10, 12, true, false,1);
+        createTable(contentStream, 40, newBoxYPosition - 5, 530, 400, 10, 12, true, false,1,document);
         contentStream.close();
     }
 
     public void createContentForSecondPage(PDDocument document, PDPage page) throws IOException {
         PDPageContentStream contentStream = new PDPageContentStream(document, page);
-        contentStream.setFont(new PDType1Font(Standard14Fonts.FontName.TIMES_ROMAN), 8);
 
         // Adding JLG heading
-        addJLGHeading(contentStream, PDRectangle.A4.getHeight() - 30);
-        createTable(contentStream, 40, 800, 530, 300, 8, 12, true, true,2);
+        addJLGHeading(contentStream, PDRectangle.A4.getHeight() - 30,document);
+        createTable(contentStream, 40, 800, 530, 300, 8, 12, true, true,2,document);
 
         float width = 17 * 28.3465f;
         float height = 6.5f* 28.3465f;
-        float gap = 210;
+        float gap = 195;
         float newBoxYPosition = 700 - gap - height - 10;
         contentStream.addRect(40, newBoxYPosition, width + 50, height);
         contentStream.stroke();
@@ -185,19 +183,19 @@ public class DocumentCreation {
         // Adding text for processing fee and insurance details
         contentStream.beginText();
         contentStream.setLeading(11f);
-        contentStream.newLineAtOffset(50, newBoxYPosition + height - 10);
-        contentStream.showText("Processing Fee & Stamp Duty charges");
+        contentStream.newLineAtOffset(50, newBoxYPosition + height -10);
+        contentStream.showText("प्रसंस्करण शुल्क और स्टाम्प ड्यूटी शुल्क");
         contentStream.newLineAtOffset(250, 0);
-        contentStream.showText("Insurance Details:");
+        contentStream.showText("बीमा विवरण:");
         contentStream.endText();
 
         contentStream.beginText();
         contentStream.newLineAtOffset(50, newBoxYPosition + height - 20);
         String[] line = {
-                 "Total Processing Fee (INR): 1000",
-                    "", "Stamp duty (INR) (including GST): 1000", "",
-                "Contingent Charges: 500", "", "Prepayment of loan (if any):", "", "Penal Charges in case of delayed payments (if any): 200",
-                "", "Other Charges (if any): 100", ""
+                "कुल प्रसंस्करण शुल्क (INR): 1000",
+                "", "स्टाम्प ड्यूटी (INR) (जीएसटी सहित): 1000", "",
+                "आकस्मिक शुल्क: 500", "", "ऋण का पूर्व भुगतान (यदि कोई हो):", "", "देरी से भुगतान के मामले में दंडात्मक शुल्क (यदि कोई हो): 200",
+                "", "अन्य शुल्क (यदि कोई हो): 100", ""
         };
         for (String i : line) {
             contentStream.newLine();
@@ -209,8 +207,8 @@ public class DocumentCreation {
         contentStream.setLeading(10f);
         contentStream.newLineAtOffset(300, newBoxYPosition + height - 20);
         String[] line1 = {
-                "Name of the Insured: Karan", "", "Name of Nominee: Kiran", "", "Relationship with borrower: Brother", "", "Age of the Insured: 30",
-                "", "Sum Assured(INR):100000", "", "Insurance Premium(INR): 20000", "", "Insurance Start Date: 12/05/2024", "", "Insurance End Date: 23/4/2030", ""
+                "बीमाधारक का नाम: करण", "", "नामांकित व्यक्ति का नाम: किरण", "", "उधारकर्ता के साथ संबंध: भाई", "", "बीमाधारक की आयु: 30",
+                "", "बीमा राशि (INR): 100000", "", "बीमा प्रीमियम (INR): 20000", "", "बीमा आरंभ तिथि: 12/05/2024", "", "बीमा समाप्ति तिथि: 23/4/2030", ""
         };
         for (String i : line1) {
             contentStream.newLine();
@@ -225,22 +223,20 @@ public class DocumentCreation {
 
         // Adding key terms and conditions
         contentStream.beginText();
-        contentStream.setFont(new PDType1Font(Standard14Fonts.FontName.TIMES_ROMAN), 8);
         contentStream.setLeading(11f);
         float textStartY = newBoxYPosition - 10;
         contentStream.newLineAtOffset(40, textStartY);
-        contentStream.showText("Key terms & Conditions:");
+        contentStream.showText("मुख्य नियम व शर्तें:");
         contentStream.endText();
         addTermsAndConditions(contentStream, 70, textStartY - 10);
 
         // Adding grievance redressal
         contentStream.beginText();
-        contentStream.setFont(new PDType1Font(Standard14Fonts.FontName.TIMES_ROMAN), 8);
         contentStream.setLeading(11f);
-        contentStream.newLineAtOffset(40, 150);
-        contentStream.showText("Grievance Redressal:");
+        contentStream.newLineAtOffset(40, 130);
+        contentStream.showText("शिकायत निवारण:");
         contentStream.newLineAtOffset(0, -10);
-        contentStream.showText("For any grievance redressal you may please get in touch.");
+        contentStream.showText("किसी भी शिकायत निवारण के लिए आप कृपया संपर्क कर सकते हैं।");
         contentStream.endText();
 
         contentStream.addRect(40, 50, 530, 80);
@@ -255,20 +251,18 @@ public class DocumentCreation {
         contentStream.stroke();
 
         contentStream.beginText();
-        contentStream.setFont(new PDType1Font(Standard14Fonts.FontName.TIMES_ROMAN), 8);
         contentStream.setLeading(11f);
         contentStream.newLineAtOffset(50, 120);
-        contentStream.showText("Nodal officer Name");
+        contentStream.showText("नोडल अधिकारी का नाम");
         contentStream.newLine();
         contentStream.newLine();
-        contentStream.showText("Arun");
+        contentStream.showText("अरुण");
         contentStream.endText();
 
         contentStream.beginText();
-        contentStream.setFont(new PDType1Font(Standard14Fonts.FontName.TIMES_ROMAN), 8);
         contentStream.setLeading(11f);
         contentStream.newLineAtOffset(320, 120);
-        contentStream.showText("Nodal officer contact no");
+        contentStream.showText("नोडल अधिकारी का संपर्क नंबर");
         contentStream.newLine();
         contentStream.newLine();
         contentStream.showText("1234567890");
@@ -283,15 +277,12 @@ public class DocumentCreation {
 
     private void addTermsAndConditions(PDPageContentStream contentStream, float x, float y) throws IOException {
         String[] termsAndConditions = {
-                "1. Conducting regular group meeting", "2. Member’s attendance and participation should be 100 %",
-                "3. Regular monthly savings should be there.", "4. All savings should be converted as Internal Loans and no ideal funds should be there.",
-                "5. Loan Repayment both internal & bank loan should be 100 % and on time.", "6. Proper maintenance of book and records with regular updation.",
-                "7. Group should exercise pressure on defaulting / irregular members.", "8. Good leadership, enthusiastic and disciplined member’s with good team spirit.",
-                "9. Co-operation and unity among all the members.", "10. Bank is responsible for the conduct of the employees."
+                "1. नियमित समूह बैठक आयोजित करना", "2. सदस्यों की उपस्थिति और भागीदारी 100% होनी चाहिए", "3. नियमित मासिक बचत होनी चाहिए।", "4. सभी बचत को आंतरिक ऋण के रूप में परिवर्तित किया जाना चाहिए और कोई आदर्श निधि नहीं होनी चाहिए।",
+                "5. आंतरिक और बैंक ऋण दोनों का ऋण चुकौती 100% और समय पर होनी चाहिए।", "6. नियमित अद्यतन के साथ पुस्तक और अभिलेखों का उचित रखरखाव।", "7. समूह को चूककर्ता/अनियमित सदस्यों पर दबाव डालना चाहिए।",
+                "8. अच्छा नेतृत्व, उत्साही और अनुशासित सदस्य और अच्छी टीम भावना।", "9. सभी सदस्यों के बीच सहयोग और एकता।", "10. बैंक कर्मचारियों के आचरण के लिए जिम्मेदार है।"
         };
 
         contentStream.beginText();
-        contentStream.setFont(new PDType1Font(Standard14Fonts.FontName.TIMES_ROMAN), 8);
         contentStream.setLeading(12f);
         contentStream.newLineAtOffset(x, y);
 
@@ -303,7 +294,7 @@ public class DocumentCreation {
     }
 
 
-    private void createTable(PDPageContentStream contentStream, float x, float y, float tableWidth, float tableHeight, int rows, int cols, boolean withHeader, boolean withFooter,int page) throws IOException {
+    private void createTable(PDPageContentStream contentStream, float x, float y, float tableWidth, float tableHeight, int rows, int cols, boolean withHeader, boolean withFooter,int page, PDDocument document) throws IOException {
         float rowHeight = tableHeight / rows;
 
         float firstColWidth = tableWidth * 0.05f;
@@ -339,20 +330,19 @@ public class DocumentCreation {
         if (withHeader) {
             // Add text to the header row
             contentStream.beginText();
-            contentStream.setFont(new PDType1Font(Standard14Fonts.FontName.TIMES_ROMAN), 8);
             contentStream.setLeading(11f);
             String[][] columnNames = {
-                    {"Inst", "no"},
-                    {"Repayment", "Date"},
-                    {"O/S", "Principal", "(INR)"},
-                    {"Principal", "(INR)"},
-                    {"Interest", "(INR)"},
-                    {"Inst", "Amount", "(INR)"},
-                    {"Paid", "Status"},
-                    {"Amount", "Collected", "(INR)"},
-                    {"Amount", "Collected", "on"},
-                    {"Emp.", "Code"},
-                    {"Emp.Signature"}
+                    {"इंस्ट", "नंबर"},
+                    {"पुनर्भुगतान", "तारीख"},
+                    {"ओ/एस", "मूलधन", "(आईएनआर)"},
+                    {"मूलधन", "(आईएनआर)"},
+                    {"ब्याज", "(आईएनआर)"},
+                    {"इंस्ट", "राशि", "(आईएनआर)"},
+                    {"भुगतान", "स्थिति"},
+                    {"राशि", "एकत्रित", "(आईएनआर)"},
+                    {"राशि", "एकत्रित", "चालू"},
+                    {"कर्मचारी.", "कोड"},
+                    {"कर्मचारी.हस्ताक्षर"}
             };
 
             float textY = y - rowHeight / 3;
@@ -396,7 +386,8 @@ public class DocumentCreation {
 
 
                 };
-                PDFont font = new PDType1Font(Standard14Fonts.FontName.TIMES_ROMAN);
+                File fontFile = new File("C:\\Users\\Bhavani K\\Desktop\\Hind-Regular.ttf");
+                PDType0Font font = PDType0Font.load(document, fontFile);
                 float fontSize = 8f;
                 for (int i = 0; i < cellContent1.length; i++) {
                     for (int j = 0; j < cellContent1[i].length; j++) {
@@ -427,7 +418,8 @@ public class DocumentCreation {
                         {"15", "01-06-2022", "25000", "5000", "2500", "2500", "Paid", "2500", "01-06-2023", "1234", ""},
                         { "","", "20000", "5000", "2000", "2000", "Paid", "2000", "01-07-2023", "1234", ""},
                 };
-                PDFont font = new PDType1Font(Standard14Fonts.FontName.TIMES_ROMAN);
+                File fontFile = new File("C:\\Users\\Bhavani K\\Desktop\\Hind-Regular.ttf");
+                PDType0Font font = PDType0Font.load(document, fontFile);
                 float fontSize = 8f;
                 for (int i = 0; i < cellContent.length; i++) {
                     for (int j = 0; j < cellContent[i].length; j++) {
@@ -452,18 +444,17 @@ public class DocumentCreation {
         }
 
 
-                if (withFooter) {
-                    contentStream.beginText();
-                    contentStream.setFont(new PDType1Font(Standard14Fonts.FontName.TIMES_ROMAN), 8);
-                    contentStream.setLeading(11f);
-                    float textX = x + 5;
-                    float textY = y - tableHeight - rowHeight + 50;
-                    contentStream.newLineAtOffset(textX, textY);
-                    contentStream.showText("Total");
-                    contentStream.endText();
-                }
+        if (withFooter) {
+            contentStream.beginText();
+            contentStream.setLeading(11f);
+            float textX = x + 5;
+            float textY = y - tableHeight - rowHeight + 50;
+            contentStream.newLineAtOffset(textX, textY);
+            contentStream.showText("कुल");
+            contentStream.endText();
         }
-
+    }
+    //
     public void savePDF(PDDocument document, String filePath) throws IOException {
         document.save(filePath);
     }

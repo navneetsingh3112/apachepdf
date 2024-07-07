@@ -1,0 +1,25 @@
+
+˜	java:S117U"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼í±®øÿÿÿÿ8ÍÏñ†2J$67c8a25e-59c0-4ddb-af94-5b7f00e88733
+„
+java:S2184²"@Cast one of the operands of this integer division to a "double".(Ô”Ä8ÍÏñ†2J$0898c367-0664-4884-8e2b-cd679c931557
+…
+java:S2184ó"ACast one of the operands of this addition operation to a "float".(²øŞ°8ÍÏñ†2J$ea864ec5-37e3-4291-9a70-94d260dc9b4e
+³
+java:S1192$"pDefine a constant instead of duplicating this literal "C:\\Users\\Bhavani K\\Desktop\\Hind-Regular.ttf" 3 times.(“«è×8ÍÏñ†2J$1ba3ae55-f968-4443-bc80-cd422027eeb5
+
+java:S1192Ñ"UDefine a constant instead of duplicating this literal "(à¤†à¤ˆà¤à¤¨à¤†à¤°)" 5 times.(™Ôü—úÿÿÿÿ8ÍÏñ†2J$ba2b284a-f3a6-42b8-b6de-87990d878f8e
+	java:S107©"=Method has 11 parameters, which is greater than 7 authorized.(âƒ™8ÍÏñ†2J$c278c8b8-2687-479b-a7e2-436baa926730
+‰
+java:S1075"ARefactor your code to get this URI from a customizable parameter.(ö²¢­øÿÿÿÿ8ÍÏñ†2J$203775a6-1f61-41fe-9801-14ca0beb43a8
+´
+java:S1130"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(¾œ‰¾øÿÿÿÿ8ÍÏñ†2J$af2f2494-ced4-421f-9c44-2d150f8cc0d3
+„
+java:S1075$"ARefactor your code to get this URI from a customizable parameter.(“«è×8ÍÏñ†2J$fefe5c3d-8912-43c1-b983-396e4a3d9668
+•
+java:S3776©"RRefactor this method to reduce its Cognitive Complexity from 46 to the 15 allowed.(âƒ™8®ÍÏñ†2J$5fd4ade2-adb7-4c91-9423-8ac620db67f8
+…
+java:S1075…"ARefactor your code to get this URI from a customizable parameter.(“«è×8®ÍÏñ†2J$092fd119-4110-40e5-b2e8-d4a90d97ca4b
+…
+java:S1075¥"ARefactor your code to get this URI from a customizable parameter.(“«è×8®ÍÏñ†2J$096efca5-7822-438c-9e48-e865e6f8f0cc
+Š
+java:S6541©"ÆA "Brain Method" was detected. Refactor it to reduce at least one of the following metrics: LOC from 140 to 64, Complexity from 19 to 14, Nesting Level from 5 to 2, Number of Variables from 47 to 6.(âƒ™8®ÍÏñ†2J$8d9d2ca6-cd12-47ad-b4cb-9487a8d7ee40

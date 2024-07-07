@@ -1,18 +1,17 @@
 
+˜	java:S117V"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼í±®øÿÿÿÿ8¿Ê¾ğ†2J$f469ab41-78b3-45c1-a117-8b5361fb21c8
 „
-java:S2184–"@Cast one of the operands of this integer division to a "double".(Ô”Ä8×Ë‡¥…2J$aaa0814c-c76b-4af7-8d1c-ed043ad828cd
+java:S2184´"@Cast one of the operands of this integer division to a "double".(Ô”Ä8ÀÊ¾ğ†2J$13fc3672-0ca4-4cd5-a3d3-30bb33f3f46b
 …
-java:S2184Ø"ACast one of the operands of this addition operation to a "float".(²øŞ°8×Ë‡¥…2J$147ef061-88b6-462f-9da2-1b1f145fb46d
-…
-java:S2184Ú"ACast one of the operands of this addition operation to a "float".(²İÀû8×Ë‡¥…2J$1f395358-10f0-45f6-a08c-103c9729a9e9
-Š
-java:S2184İ"ACast one of the operands of this addition operation to a "float".(…ŸÆüÿÿÿÿ8×Ë‡¥…2J$5e084369-2baf-4530-b76c-cadf2f9d2616
-ˆ
-java:S2184å"DCast one of the operands of this subtraction operation to a "float".(Ôìœ8×Ë‡¥…2J$468312de-1ae2-4225-b1cb-4e63d5fa309f
+java:S2184÷"ACast one of the operands of this addition operation to a "float".(²øŞ°8ÀÊ¾ğ†2J$3bfc0bf2-fbc8-4ce5-b34c-01c0b18119a3
 
-java:S1192µ"GDefine a constant instead of duplicating this literal "Amount" 3 times.(Ùò¬üÿÿÿÿ8äË‡¥…2J$1f52a921-0b94-42d1-86ca-62d624601777
+java:S1192Ş"GDefine a constant instead of duplicating this literal "Amount" 3 times.(Ùò¬üÿÿÿÿ8ÁÊ¾ğ†2J$337cdde7-c255-4f2c-9b29-bf419b0c2ecf
 ‰
-java:S1192²"FDefine a constant instead of duplicating this literal "(INR)" 5 times.(˜åÇX8äË‡¥…2J$d9fd6e71-420b-4cd6-ad31-933f65afc491
-	java:S107‰"<Method has 9 parameters, which is greater than 7 authorized.(Òçùº8èË‡¥…2J$3f5bb9c8-9196-4f2e-a7d3-45c9975a8fba
+java:S1192Û"FDefine a constant instead of duplicating this literal "(INR)" 5 times.(˜åÇX8ÁÊ¾ğ†2J$5f983e37-ba8f-4b45-9935-f80d39f2918f
+…	java:S107²"=Method has 10 parameters, which is greater than 7 authorized.(‡Û¶¦üÿÿÿÿ8ÁÊ¾ğ†2J$34d6e631-593d-4ee8-ae20-75a0307dcf5e
 ‰
-java:S1075"ARefactor your code to get this URI from a customizable parameter.(İ½ö†şÿÿÿÿ8ìË‡¥…2J$a6c8da6e-02e4-4e8e-8170-da0bbc4f22b5
+java:S1075"ARefactor your code to get this URI from a customizable parameter.(İ½ö†şÿÿÿÿ8ÁÊ¾ğ†2J$8f472f42-ee63-45a6-9acf-450fa1f6e6de
+›
+java:S3776²"RRefactor this method to reduce its Cognitive Complexity from 46 to the 15 allowed.(‡Û¶¦üÿÿÿÿ8ÓÊ¾ğ†2J$6ee9a3ba-1386-4bc1-abc3-468756db9340
+
+java:S6541²"ÆA "Brain Method" was detected. Refactor it to reduce at least one of the following metrics: LOC from 140 to 64, Complexity from 19 to 14, Nesting Level from 5 to 2, Number of Variables from 44 to 6.(‡Û¶¦üÿÿÿÿ8ÓÊ¾ğ†2J$e4f8f523-8e03-43c8-a35f-d52a8399af40

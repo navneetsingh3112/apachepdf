@@ -1,0 +1,21 @@
+
+˜	java:S117Z"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼í±®øÿÿÿÿ8åƒá˜‡2J$13b8b313-8d0f-45b2-afb9-45ffd99b2d18
+„
+java:S2184¶"@Cast one of the operands of this integer division to a "double".(Ô”Ä8åƒá˜‡2J$4b382e25-9e85-4bbc-a3e4-203ac98c11e3
+…
+java:S2184ø"ACast one of the operands of this addition operation to a "float".(²øŞ°8åƒá˜‡2J$70110840-6bf2-4bad-8005-04f742138306
+
+java:S1192Ø"FDefine a constant instead of duplicating this literal "(INR)" 5 times.(¥šËëûÿÿÿÿ8ôƒá˜‡2J$ad4a7897-23ca-42de-9731-495477e20cb6
+	java:S107°"=Method has 11 parameters, which is greater than 7 authorized.(âƒ™8ôƒá˜‡2J$2cb5f0fa-a610-424e-aa3b-20baabfbcc64
+„
+java:S1075"ARefactor your code to get this URI from a customizable parameter.(É¬°8ôƒá˜‡2J$c4baa451-f9a8-40d9-a56c-047f19b57fbc
+c
+java:S1075&"ARefactor your code to get this URI from a customizable parameter.(é×¨úÿÿÿÿ8½µß·‡2
+•
+java:S3776°"RRefactor this method to reduce its Cognitive Complexity from 46 to the 15 allowed.(âƒ™8„„á˜‡2J$d815f6d0-6a01-4886-bc77-de305c281f8e
+…
+java:S1075"ARefactor your code to get this URI from a customizable parameter.(éÎ€Õ8„„á˜‡2J$f267ff5f-4689-49b8-94bf-a31532d43bd7
+…
+java:S1075­"ARefactor your code to get this URI from a customizable parameter.(éÎ€Õ8„„á˜‡2J$6e51938c-4f58-4cbe-8aa5-1ac73e50b00c
+Š
+java:S6541°"ÆA "Brain Method" was detected. Refactor it to reduce at least one of the following metrics: LOC from 140 to 64, Complexity from 19 to 14, Nesting Level from 5 to 2, Number of Variables from 47 to 6.(âƒ™8„„á˜‡2J$511fd178-8edc-435d-9d15-38dd4f3ba4a4

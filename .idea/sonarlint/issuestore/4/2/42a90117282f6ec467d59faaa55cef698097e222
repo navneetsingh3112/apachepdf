@@ -1,0 +1,23 @@
+
+r	java:S117U"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼í±®øÿÿÿÿ8Ú¢Îò†2
+^
+java:S2184²"@Cast one of the operands of this integer division to a "double".(Ô”Ä8Ú¢Îò†2
+_
+java:S2184ó"ACast one of the operands of this addition operation to a "float".(²øŞ°8Ú¢Îò†2
+i
+java:S1192Ó"FDefine a constant instead of duplicating this literal "(INR)" 5 times.(´¡¯úÿÿÿÿ8Ú¢Îò†2
+ˆ
+java:S1192$"kDefine a constant instead of duplicating this literal "C:\\Users\\Bhavani K\\Desktop\\Nirmala.ttf" 3 times.(éÎ€Õ8Ú¢Îò†2
+Y	java:S107«"=Method has 11 parameters, which is greater than 7 authorized.(âƒ™8è¢Îò†2
+c
+java:S1075"ARefactor your code to get this URI from a customizable parameter.(ÚÍÎÇüÿÿÿÿ8é¢Îò†2
+^
+java:S1075$"ARefactor your code to get this URI from a customizable parameter.(éÎ€Õ8é¢Îò†2
+o
+java:S3776«"RRefactor this method to reduce its Cognitive Complexity from 46 to the 15 allowed.(âƒ™8ü¢Îò†2
+_
+java:S1075‡"ARefactor your code to get this URI from a customizable parameter.(éÎ€Õ8ü¢Îò†2
+_
+java:S1075§"ARefactor your code to get this URI from a customizable parameter.(éÎ€Õ8ü¢Îò†2
+ä
+java:S6541«"ÆA "Brain Method" was detected. Refactor it to reduce at least one of the following metrics: LOC from 140 to 64, Complexity from 19 to 14, Nesting Level from 5 to 2, Number of Variables from 47 to 6.(âƒ™8ü¢Îò†2
