@@ -33,7 +33,7 @@ public class GujrathiDocument{
 
     private void addJLGHeading(PDPageContentStream contentStream, float yOffset,PDDocument document) throws IOException {
         String heading = "JLG/SHG/IL - લોન કાર્ડ કમ ફેક્ટ શીટ";
-        File fontFile = new File("C:\\Users\\Bhavani K\\Desktop\\Nirmala.ttf");
+        File fontFile = new File("C:\\Users\\Bhavani K\\Downloads\\Nirmala.ttf");
         PDType0Font font = PDType0Font.load(document, fontFile);
         float stringWidth = font.getStringWidth(heading) * 30/ 1000;
         float centerPosition = stringWidth /2;

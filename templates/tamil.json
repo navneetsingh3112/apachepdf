@@ -1,0 +1,89 @@
+{
+  "label_jlg_heading": "JLG/SHG/IL – கடன் அட்டை மற்றும் உண்மை தாள்",
+  "label_branch_name_and_code": "கிளைக் குறியீடு & பெயர",
+  "label_branch_address":"கிளை விலாசம்",
+  "label_regd_office":"பதிவுசெய்யப்பட்ட அலுவலகம்",
+  "label_gst_regn":"ஜிஎஸ்டி ரெஜின்",
+  "label_cin":"CIN",
+  "label_pan":"PAN",
+  "label_customer_name_and_code":"வாடிக்கையாளர் பெயர் & ஐடி",
+  "label_loan_accountNumber":"கடன் கணக்கு எண்",
+  "label_group_name":"குழு பெயர்",
+  "label_product": "தயாரிப்பு",
+  "label_husband_name":"கணவர் பெயர்",
+  "label_customer_address":"வாடிக்கையாளர் முகவரி",
+  "label_disbursed_date":"வழங்கப்பட்ட தேதி",
+  "label_loan_amount":"கடன் தொகை(INR)",
+  "label_total_interest_charge":"மொத்த வட்டி கட்டணம்(INR)",
+  "label_other_upfront_charges":"மற்ற முன் கட்டணங்கள் (INR)",
+  "label_processing_fees":"காப்பீட்டு தொகை",
+  "label_insurance_amount":"காப்பீட்டுத் தொகை(INR)",
+  "label_others":"நிகரமாக வழங்கப்பட்ட தொகை(INR)",
+  "label_net_disbursed_amount":"நிகரமாக வழங்கப்பட்ட தொகை(INR)",
+  "label_total_amount_to_be_paid":"செலுத்த வேண்டிய மொத்த தொகை(INR)",
+  "label_annualised_interest_rate":"வருடாந்திர வட்டி விகிதம்(%)",
+  "label_rate_of_interest":"வட்டி விகிதம்(%):",
+  "label_mobile_no": "மொபைல் எண்",
+  "label_father_name": "தந்தை பெயர்",
+  "label_co_applicant_name": "இணை விண்ணப்பதாரர் பெயர் (பொருந்தினால்)",
+  "label_centre_place_address": "சென்டர் பிளேஸ்(முகவரி)",
+  "label_loan_term_in_months": "கடன் காலம் (மாதங்களில்)",
+  "label_repayment_frequency": "திரும்பச் செலுத்தும் அதிர்வெண்",
+  "label_no_of_instalments_of_repayment": "திரும்பச் செலுத்தும் தவணைகளின் எண்ணிக்கை",
+  "label_repayment_date": "திரும்பச் செலுத்தும் தேதி ",
+  "label_repayment_amount_inr": "திருப்பிச் செலுத்தும் தொகை(INR)",
+  "label_lending_type": "கடன் வகை",
+  "label_loan_cycle": "கடன் சுழற்சி",
+  "label_bank_acct_no": "வங்கி கணக்கு எண்",
+  "label_purpose": "நோக்கம்",
+  "label_beneficiary_ac_name": "பயனாளி A/C பெயர்",
+  "label_bank_name": "வங்கி பெயர்",
+  "label_netoff_account_amount": "நெட்டாஃப் கணக்கு/தொகை",
+
+  "label_total_processing_fee": "மொத்த செயலாக்கக் கட்டணம்(INR) ",
+  "label_stamp_duty": "முத்திரை வரி (INR) (ஜிஎஸ்டி உட்பட)",
+  "label_contingent_charges": "தற்செயலான கட்டணங்கள் ",
+  "label_prepayment_of_loan": "கடனை முன்கூட்டியே செலுத்துதல்(ஏதேனும் இருந்தால்) ",
+  "label_penal_charges_in_case_of_delayed_payments": "தாமதமாக செலுத்தும் பட்சத்தில் அபராதக் கட்டணம்(ஏதேனும் இருந்தால்)",
+  "label_other_charges": "பிற கட்டணங்கள் (ஏதேனும் இருந்தால்)",
+
+  "label_name_of_insured": "காப்பீடு செய்யப்பட்டவரின் பெயர்",
+  "label_name_of_nominee": "நாமினியின் பெயர்",
+  "label_relationship_with_borrower": "கடன் வாங்கியவருடனான உறவு",
+  "label_age_of_insured": "காப்பீடு செய்தவரின் வயது",
+  "label_sum_assured": "உறுதிப்படுத்தப்பட்ட தொகை(INR)",
+  "label_insurance_premium": "காப்பீட்டு பிரீமியம்(INR)",
+  "label_insurance_start_date": "காப்பீடு தொடங்கும் தேதி",
+  "label_insurance_end_date": "காப்பீடு முடிவுத் தேதி",
+
+  "label_inst_number": "Inst no",
+  "label_repay_date": "திருப்பி செலுத்துதேதி",
+  "label_o/s_prinicipal": "O/S முதன்மை (INR)",
+  "label_principal": "முதன்மை (INR)",
+  "label_interest": "வட்டி (INR)",
+  "label_inst_amount": "Inst தொகை (INR)",
+  "label_paid_status": "பணம் நிலை",
+  "label_amount_collected": "தொகை சேகரிப்பு (INR)",
+  "label_amount_collected_on": "தொகை சேகரிப்பு ஆன்",
+  "label_emp_code": "Emp. குறியீடு",
+  "label_emp_signature": "Emp. கையெழுத்து",
+  "label_processing_fees": "செயலாக்கக் கட்டணம் & முத்திரைக் கட்டணம்",
+  "label_insurance_details": "காப்பீட்டு விவரங்கள்",
+  "label_grievance_redressal":"குறை தீர்க்கும் முறை:",
+  "label_text":"ஏதேனும் குறை நிவர்த்திக்கு நீங்கள் தொடர்பு கொள்ளலாம்.",
+  "label_nodal_officer":"நோடல் அதிகாரி",
+  "label_contact_details":"நோடல் அதிகாரி தொடர்பு எண்",
+  "label_keyterms_and_conditions":"முக்கிய விதிமுறைகள் மற்றும் நிபந்தனைகள்",
+
+
+  "label_total": "மொத்தம்"
+
+
+}
+
+
+
+
+
+
+

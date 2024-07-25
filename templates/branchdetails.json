@@ -1,0 +1,89 @@
+{
+  "label_jlg_heading": "JLG/SHG/IL – LOAN CARD CUM FACT SHEET",
+  "label_branch_name_and_code": "Branch Name & Code",
+  "label_branch_address":"Branch Address",
+  "label_regd_office":"Regd.office",
+  "label_gst_regn":"GST Regn",
+  "label_cin":"CIN",
+  "label_pan":"PAN",
+  "label_customer_name_and_code":"Customer Name & ID",
+  "label_loan_accountNumber":"Loan Account No",
+  "label_group_name":"Group Name",
+  "label_product": "Product",
+  "label_husband_name":"Husband Name",
+  "label_customer_address":"Customer Address",
+  "label_disbursed_date":"Disbursed Date",
+  "label_loan_amount":"Loan Amount (INR)",
+  "label_total_interest_charge":"Total Interest Charge (INR)",
+  "label_other_upfront_charges":"Other Up-front charges (INR)",
+  "label_processing_fees":"Processing Fees (INR)",
+  "label_insurance_amount":"Insurance Amount (INR)",
+  "label_others":"Others(if any) (INR): ",
+  "label_net_disbursed_amount":"Net Disbursed Amount (INR)",
+  "label_total_amount_to_be_paid":"Total Amount to be Paid (INR)",
+  "label_annualised_interest_rate":"Annualized Int.Rate (%)",
+  "label_rate_of_interest":"Rate of Interest (%)",
+  "label_mobile_no": "Mobile No",
+  "label_father_name": "Father Name",
+  "label_co_applicant_name": "Co-Applicant Name(if applicable)",
+  "label_centre_place_address": "Centre Place(Address)",
+  "label_loan_term_in_months": "Loan Term (in Months)",
+  "label_repayment_frequency": "Repayment Frequency",
+  "label_no_of_instalments_of_repayment": "No of Instalments of Repayment",
+  "label_repayment_date": "Repayment Date",
+  "label_repayment_amount_inr": "Repayment Amount (INR)",
+  "label_lending_type": "Lending Type",
+  "label_loan_cycle": "Loan Cycle",
+  "label_bank_acct_no": "Bank Acct No",
+  "label_purpose": "Purpose",
+  "label_beneficiary_ac_name": "Beneficiary A/C Name",
+  "label_bank_name": "Bank Name",
+  "label_netoff_account_amount": "Netoff Account/Amount",
+
+  "label_total_processing_fee": "Total Processing Fee (INR) ",
+  "label_stamp_duty": "Stamp duty (INR) (including GST) ",
+  "label_contingent_charges": "Contingent Charges ",
+  "label_prepayment_of_loan": "Prepayment of loan (if any) ",
+  "label_penal_charges_in_case_of_delayed_payments": "Penal Charges in case of delayed payments (if any) ",
+  "label_other_charges": "Other Charges (if any) ",
+
+  "label_name_of_insured": "Name of the Insured",
+  "label_name_of_nominee": "Name of Nominee",
+  "label_relationship_with_borrower": "Relationship with borrower",
+  "label_age_of_insured": "Age of the Insured",
+  "label_sum_assured": "Sum Assured(INR)",
+  "label_insurance_premium": "Insurance Premium(INR)",
+  "label_insurance_start_date": "Insurance Start Date",
+  "label_insurance_end_date": "Insurance End Date",
+
+  "label_inst_number": "Inst no",
+  "label_repay_date": "Repayment Date",
+  "label_o/s_prinicipal": "O/S Principal (INR)",
+  "label_principal": "Principal (INR)",
+    "label_interest": "Interest (INR)",
+    "label_inst_amount": "Inst Amount (INR)",
+    "label_paid_status": "Paid Status",
+    "label_amount_collected": "Amount Collected (INR)",
+    "label_amount_collected_on": "Amount Collected on",
+    "label_emp_code": "Emp. Code",
+    "label_emp_signature": "Emp. Signature",
+    "label_processing_fees": "Processing Fee & Stamp Duty charges",
+    "label_insurance_details": "Insurance Details:",
+    "label_grievance_redressal":"Grievance Redressal",
+    "label_text":"For any grievance redressal you may please get in touch.",
+    "label_nodal_officer":"Nodal Officer",
+    "label_contact_details":"Nodal officer contact no",
+     "label_keyterms_and_conditions":"Key terms and Conditions",
+
+
+    "label_total": "Total"
+
+
+  }
+
+
+
+
+
+
+
