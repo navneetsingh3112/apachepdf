@@ -328,7 +328,6 @@ public class TamilPdf {
 
         contentStream.stroke();
         contentStream.close();
-
     }
 
 
@@ -380,7 +379,6 @@ public class TamilPdf {
             contentStream.stroke();
             currentX += remainingColWidth;
         }
-
         contentStream.moveTo(x + tableWidth, y);
         contentStream.lineTo(x + tableWidth, y - tableHeight);
         contentStream.stroke();

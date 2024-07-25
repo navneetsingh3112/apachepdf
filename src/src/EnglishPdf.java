@@ -14,10 +14,10 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Map;
 
-public class DocumentCreation {
+public class EnglishPdf {
 
     public static void main(String[] args) throws IOException {
-        DocumentCreation documentCreation = new DocumentCreation();
+        EnglishPdf documentCreation = new EnglishPdf();
 
         PDDocument newDocument = new PDDocument();
         PDPage page1 = documentCreation.createPage(newDocument);
@@ -25,9 +25,8 @@ public class DocumentCreation {
 
         documentCreation.createContent(newDocument, page1);
         documentCreation.createContentForSecondPage(newDocument, page2);
-        String outputFilePath = "c:/Users/Bhavani K/Desktop/English.pdf";
+        String outputFilePath = "templates/files/english.pdf";
         documentCreation.savePDF(newDocument, outputFilePath);
-
         newDocument.close();
     }
 
@@ -38,7 +37,7 @@ public class DocumentCreation {
     }
 
     private void addJLGHeading(PDPageContentStream contentStream, float yOffset) throws IOException {
-        String file="templates/branchdetails.json";
+        String file="templates/english.json";
         String heading = readLabelFromJson(file, "label_jlg_heading");
         PDFont font = new PDType1Font(Standard14Fonts.FontName.TIMES_BOLD);
         float stringWidth = font.getStringWidth(heading) * 18/ 1000;
@@ -75,7 +74,7 @@ public class DocumentCreation {
         contentStream.showText("We understand your world");
         contentStream.newLineAtOffset(10, -50);
 
-        String jsonFilePath = "templates/branchdetails.json";
+        String jsonFilePath = "templates/english.json";
         String[] jsonKeys = {
                 "label_branch_name_and_code",
                 "label_branch_address",
@@ -185,7 +184,7 @@ public class DocumentCreation {
     public void createContentForSecondPage(PDDocument document, PDPage page) throws IOException {
         PDPageContentStream contentStream = new PDPageContentStream(document, page);
         contentStream.setFont(new PDType1Font(Standard14Fonts.FontName.TIMES_ROMAN), 8);
-        String file="templates/branchdetails.json";
+        String file="templates/english.json";
 
         // Adding JLG heading
         addJLGHeading(contentStream, PDRectangle.A4.getHeight() - 30);
@@ -335,7 +334,7 @@ public class DocumentCreation {
 
     private void addTermsAndConditions(PDPageContentStream contentStream, float x, float y) throws IOException {
             ObjectMapper objectMapper = new ObjectMapper();
-            JsonNode rootNode = objectMapper.readTree(new File("templates/termsandconditions.json"));
+            JsonNode rootNode = objectMapper.readTree(new File("templates/termsandconditions_english.json"));
             JsonNode termsAndConditions = rootNode.get("termsAndConditions");
             contentStream.beginText();
             contentStream.setFont(new PDType1Font(Standard14Fonts.FontName.TIMES_ROMAN), 8);
@@ -394,7 +393,7 @@ public class DocumentCreation {
             contentStream.beginText();
             contentStream.setFont(new PDType1Font(Standard14Fonts.FontName.TIMES_ROMAN), 8);
             contentStream.setLeading(11f);
-            String jsonFilePath = "templates/branchdetails.json";
+            String jsonFilePath = "templates/english.json";
             String[] table_headers = {
                     "label_inst_number",
                     "label_repay_date",
@@ -449,7 +448,7 @@ public class DocumentCreation {
                     float textX = x + 5;
                     float textY = y - tableHeight - rowHeight + 50;
                     contentStream.newLineAtOffset(textX, textY);
-                    String jsonFilePath= "templates/branchdetails.json";
+                    String jsonFilePath= "templates/english.json";
                     String value = readLabelFromJson(jsonFilePath, "label_total");
                     contentStream.showText(value);
 

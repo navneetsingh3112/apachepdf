@@ -322,7 +322,6 @@ public class OriyaPdf {
 
         contentStream.stroke();
         contentStream.close();
-
     }
 
 
@@ -341,7 +340,6 @@ public class OriyaPdf {
                 contentStream.newLine();
             }
         }
-
         contentStream.endText();
     }
 

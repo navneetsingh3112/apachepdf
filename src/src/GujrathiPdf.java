@@ -341,10 +341,8 @@ public class GujrathiPdf {
                 contentStream.newLine();
             }
         }
-
         contentStream.endText();
     }
-
 
     private void createTable(PDPageContentStream contentStream, float x, float y, float tableWidth, float tableHeight, int rows, int cols, boolean withHeader, boolean withFooter,int page) throws IOException {
         float rowHeight = tableHeight / rows;
@@ -446,7 +444,6 @@ public class GujrathiPdf {
             contentStream.endText();
         }
     }
-
     public void savePDF(PDDocument document, String filePath) throws IOException {
         document.save(filePath);
     }
