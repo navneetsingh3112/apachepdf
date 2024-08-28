@@ -1,0 +1,91 @@
+{
+  "label_jlg_heading": "JLG/SHG/IL – LOAN CARD CUM FACT SHEET",
+  "label_branch_name_and_code": "ശാഖയുടെ പേര് & കോഡ്",
+  "label_branch_address":"ശാഖാ വിലാസം",
+  "label_regd_office":"രജിസ്റ്റർഡ് ഓഫീസ്",
+  "label_gst_regn":"ജി.എസ്.ടി രജിസ്ട്രേഷൻ",
+  "label_cin":"സി.ഐ.എൻ",
+  "label_pan":"പി.എൻ",
+  "label_customer_name_and_code":"ഉപഭോക്താവിന്റെ പേര് & ഐ.ഡി",
+  "label_loan_accountNumber":"ലോൺ അക്കൗണ്ട് നമ്പർ",
+  "label_group_name":"ഗ്രൂപ്പ് നാമം",
+  "label_product": "ഉൽപ്പന്നം",
+  "label_husband_name":"ഭർത്താവിന്റെ പേര്",
+  "label_customer_address":"ഉപഭോക്താവിന്റെ വിലാസം",
+  "label_disbursed_date":"ഹസ്താന്തര ചെയ്ത തീയതി",
+  "label_loan_amount":"ലോൺ തുക (INR)",
+  "label_total_interest_charge":"മൊത്തം പലിശ ചാർജ് (INR)",
+  "label_other_upfront_charges":"മറ്റ് മുൻകൂറ് ചാർജുകൾ (INR)",
+  "label_processing_fees":"പ്രോസസ്സിംഗ് ഫീസ് (INR)",
+  "label_insurance_amount":"ഇൻഷുറൻസ് തുക (INR)",
+  "label_others":"മറ്റുള്ളവ (എങ്കിൽ) (INR): ",
+  "label_net_disbursed_amount":"ഹസ്താന്തര ചെയ്ത മൊത്തം തുക (INR)",
+
+
+
+  "label_total_amount_to_be_paid":"പേരാനാമം പെയ്മെന്റ് തുക (INR)",
+
+
+
+
+  "label_annualised_interest_rate":"വാർഷിക പലിശ നിരക്ക് (%)",
+  "label_rate_of_interest":"പലിശ നിരക്ക് (%)",
+  "label_mobile_no": "മൊബൈൽ നമ്പർ",
+  "label_father_name": "പിതാവിന്റെ പേര്",
+  "label_co_applicant_name": "സഹ അപേക്ഷകന്റെ പേര് (ഉണ്ടെങ്കിൽ)",
+  "label_centre_place_address": "കേന്ദ്ര സ്ഥലം (വിലാസം)",
+  "label_loan_term_in_months": "ലോൺ കാലാവധി (മാസങ്ങൾ)",
+  "label_repayment_frequency": "പെയ്മെന്റ് പതിവ്",
+  "label_no_of_instalments_of_repayment": "പേയ്മെന്റ് നമ്പർ",
+  "label_repayment_date": "പേയ്മെന്റ് തീയതി",
+  "label_repayment_amount_inr": "പെയ്മെന്റ് തുക (INR)",
+
+
+
+  "label_lending_type": "തിരുവിതരണം തരം",
+  "label_loan_cycle": "ലോൺ ചക്രം",
+
+
+
+  "label_bank_acct_no": "ബാങ്ക് അക്കൗണ്ട് നമ്പർ",
+  "label_purpose": "ഉദ്ദേശ്യം",
+  "label_beneficiary_ac_name": "ലാഭഭോഗിയുടെ അക്കൗണ്ട് പേര്",
+
+
+
+  "label_bank_name": "ബാങ്ക് നാമം",
+  "label_netoff_account_amount": "കുറച്ച് അക്കൗണ്ട് / തുക",
+  "label_total_processing_fee": "മൊത്തം പ്രോസസ്സിംഗ് ഫീസ് (INR) ",
+  "label_stamp_duty": "സ്റ്റാമ്പ് ഡ്യൂട്ടി (INR) (ജി.എസ്.ടി അടക്കം) ",
+  "label_contingent_charges": "സാഹചര്യ ചാർജുകൾ ",
+  "label_prepayment_of_loan": "ലോൺ മുൻകൂർ പെയ്മെന്റ് (ഉണ്ടെങ്കിൽ) ",
+  "label_penal_charges_in_case_of_delayed_payments": "വിലംബ പെയ്മെന്റുകൾ (ഉണ്ടെങ്കിൽ) പിഴ ചാർജുകൾ ",
+  "label_other_charges": "മറ്റ് ചാർജുകൾ (ഉണ്ടെങ്കിൽ) ",
+  "label_name_of_insured": "ഇൻഷുറൻസുകാരന്റെ പേര്",
+  "label_name_of_nominee": "നാമനിർദേശിതന്റെ പേര്",
+  "label_relationship_with_borrower": "കടം വാങ്ങുന്നവനുമായുള്ള ബന്ധം",
+  "label_age_of_insured": "ഇൻഷുറൻസുകാരന്റെ പ്രായം",
+  "label_sum_assured": "പ്രതിഷ്ഠിത തുക (INR)",
+  "label_insurance_premium": "ഇൻഷുറൻസ് പ്രീമിയം (INR)",
+  "label_insurance_start_date": "ഇൻഷുറൻസ് ആരംഭം തീയതി",
+  "label_insurance_end_date": "ഇൻഷുറൻസ് അവസാന തീയതി",
+  "label_inst_number": "ഇൻസ്റ്റാൾ നമ്പർ",
+  "label_repay_date": "പെയ്മെന്റ് തീയതി",
+  "label_o/s_prinicipal": "ഓ. എസ് പ്രിൻസിപ്പൽ (INR)",
+  "label_principal": "പ്രിൻസിപ്പൽ (INR)",
+  "label_interest": "പലിശ (INR)",
+  "label_inst_amount": "ഇൻസ്റ്റാൾ തുക (INR)",
+  "label_paid_status": "അടച്ച നില",
+  "label_amount_collected": "ശേഖരിച്ച തുക (INR)",
+  "label_amount_collected_on": "ശേഖരിച്ച തീയതി",
+  "label_emp_code": "എംപ്ലോയി കോഡ്",
+  "label_emp_signature": "എംപ്ലോയി ഒപ്പ്",
+  "label_processing_fees": "പ്രോസസ്സിംഗ് ഫീസ് & സ്റ്റാമ്പ് ഡ്യൂട്ടി ചാർജുകൾ",
+  "label_insurance_details": "ഇൻഷുറൻസ് വിശദാംശങ്ങൾ:",
+  "label_grievance_redressal":"പരാതി പരിഹാരം",
+  "label_text":"എന്തെങ്കിലും പരാതികൾക്കായി, ദയവായി ഞങ്ങളെ സമീപിക്കുക.",
+  "label_nodal_officer":"നോഡൽ ഓഫീസർ",
+  "label_contact_details":"നോഡൽ ഓഫീസർ ബന്ധപ്പെടാനുള്ള നമ്പർ",
+  "label_keyterms_and_conditions":"പ്രധാന നിബന്ധനകളും വ്യവസ്ഥകളും",
+  "label_total": "മൊത്തം"
+}

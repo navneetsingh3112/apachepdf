@@ -7,25 +7,25 @@ import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.common.PDRectangle;
 import org.apache.pdfbox.pdmodel.font.PDType0Font;
 import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Map;
 
-public class GujrathiPdf {
-
+public class MalayalamPdf {
     public static void main(String[] args) throws IOException {
-        GujrathiPdf documentCreation = new GujrathiPdf();
+        MalayalamPdf documentCreation = new MalayalamPdf();
 
         PDDocument newDocument = new PDDocument();
         PDPage page1 = documentCreation.createPage(newDocument);
         PDPage page2 = documentCreation.createPage(newDocument);
 
+
         documentCreation.createContent(newDocument, page1);
         documentCreation.createContentForSecondPage(newDocument, page2);
-        String outputFilePath = "templates/files/gujrathi.pdf";
+        String outputFilePath = "templates/files/malayalam.pdf";
         documentCreation.savePDF(newDocument, outputFilePath);
-
         newDocument.close();
     }
 
@@ -35,15 +35,21 @@ public class GujrathiPdf {
         return page;
     }
 
+
     private void addJLGHeading(PDPageContentStream contentStream, float yOffset,PDDocument document) throws IOException {
-        File fontFile = new File("templates/Nirmala.ttf");
+        File fontFile = new File("templates/Gayathri-Regular.ttf");
+        if (!fontFile.exists()) {
+            throw new IOException("Font file not found: " + fontFile.getAbsolutePath());
+        }
         PDType0Font font = PDType0Font.load(document, fontFile);
-        String file="templates/gujrathi.json";
+        String file="templates/malayalam.json";
         String heading = readLabelFromJson(file, "label_jlg_heading");
-        float stringWidth = font.getStringWidth(heading) * 30/ 1000;
+        heading=heading.replace(" ", "\u200C");
+        float stringWidth = font.getStringWidth(heading) * 18/ 1000;
         float centerPosition = stringWidth /2;
         contentStream.beginText();
         contentStream.setFont(font, 8);
+       // contentStream.setLeading(12f);//extra added
         contentStream.newLineAtOffset(centerPosition, yOffset);
         contentStream.showText(heading);
         contentStream.endText();
@@ -73,7 +79,7 @@ public class GujrathiPdf {
         contentStream.showText("We understand your world");
         contentStream.newLineAtOffset(10, -50);
 
-        String jsonFilePath = "templates/gujrathi.json";
+        String jsonFilePath = "templates/malayalam.json";
         String[] jsonKeys = {
                 "label_branch_name_and_code",
                 "label_branch_address",
@@ -182,7 +188,7 @@ public class GujrathiPdf {
 
     public void createContentForSecondPage(PDDocument document, PDPage page) throws IOException {
         PDPageContentStream contentStream = new PDPageContentStream(document, page);
-        String file="templates/gujrathi.json";
+        String file="templates/malayalam.json";
 
         // Adding JLG heading
         addJLGHeading(contentStream, PDRectangle.A4.getHeight() - 30,document);
@@ -322,13 +328,12 @@ public class GujrathiPdf {
 
         contentStream.stroke();
         contentStream.close();
-
     }
 
 
     private void addTermsAndConditions(PDPageContentStream contentStream, float x, float y) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
-        JsonNode rootNode = objectMapper.readTree(new File("templates/termsandconditions_gujrathi.json"));
+        JsonNode rootNode = objectMapper.readTree(new File("templates/termsandconditions_malayalam.json"));
         JsonNode termsAndConditions = rootNode.get("termsAndConditions");
         contentStream.beginText();
         contentStream.setLeading(12f);
@@ -341,14 +346,16 @@ public class GujrathiPdf {
                 contentStream.newLine();
             }
         }
+
         contentStream.endText();
     }
+
 
     private void createTable(PDPageContentStream contentStream, float x, float y, float tableWidth, float tableHeight, int rows, int cols, boolean withHeader, boolean withFooter,int page) throws IOException {
         float rowHeight = tableHeight / rows;
 
-        float firstColWidth = tableWidth * 0.05f;
-        float lastColWidth = tableWidth * 0.2f;
+        float firstColWidth = tableWidth * 0.08f;
+        float lastColWidth = tableWidth * 0.12f;
         float remainingTableWidth = tableWidth - firstColWidth - lastColWidth;
         float remainingColWidth = remainingTableWidth / (cols - 3);
         contentStream.setLineWidth(1);
@@ -383,7 +390,7 @@ public class GujrathiPdf {
             // Add text to the header row
             contentStream.beginText();
             contentStream.setLeading(11f);
-            String jsonFilePath = "templates/gujrathi.json";
+            String jsonFilePath = "templates/malayalam.json";
             String[] table_headers = {
                     "label_inst_number",
                     "label_repay_date",
@@ -396,7 +403,6 @@ public class GujrathiPdf {
                     "label_amount_collected_on",
                     "label_emp_code",
                     "label_emp_signature"
-
             };
 
             float textY = y - rowHeight / 3;
@@ -437,13 +443,13 @@ public class GujrathiPdf {
             float textX = x + 5;
             float textY = y - tableHeight - rowHeight + 50;
             contentStream.newLineAtOffset(textX, textY);
-            String jsonFilePath= "templates/gujrathi.json";
+            String jsonFilePath= "templates/malayalam.json";
             String value = readLabelFromJson(jsonFilePath, "label_total");
             contentStream.showText(value);
-
             contentStream.endText();
         }
     }
+
     public void savePDF(PDDocument document, String filePath) throws IOException {
         document.save(filePath);
     }

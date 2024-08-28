@@ -36,7 +36,7 @@ public class HindiPdf {
     }
 
     private void addJLGHeading(PDPageContentStream contentStream, float yOffset,PDDocument document) throws IOException {
-        File fontFile = new File("C:\\Users\\Bhavani K\\Desktop\\Hind-Regular.ttf");
+        File fontFile = new File("templates/Hind-Regular.ttf");
         PDType0Font font = PDType0Font.load(document, fontFile);
         String file="templates/hindi.json";
         String heading = readLabelFromJson(file, "label_jlg_heading");

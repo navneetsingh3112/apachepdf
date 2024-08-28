@@ -37,7 +37,7 @@ public class KannadaPdf {
 
 
     private void addJLGHeading(PDPageContentStream contentStream, float yOffset,PDDocument document) throws IOException {
-        File fontFile = new File("templates/Mallige Normal.ttf");
+        File fontFile = new File("templates/NotoSerifKannada-VariableFont_wght.ttf");
         if (!fontFile.exists()) {
             throw new IOException("Font file not found: " + fontFile.getAbsolutePath());
         }
