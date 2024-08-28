@@ -101,7 +101,7 @@ public class HindiPdf {
         float gap = -60;
         contentStream.addRect(80 + widthInPoints - 35, 695 - heightInPoints-gap, photoWidth, photoHeight);
         contentStream.stroke();
-        PDImageXObject Image = PDImageXObject.createFromFile("C:\\Users\\Bhavani K\\Downloads\\photo.jpg", document);
+        PDImageXObject Image = PDImageXObject.createFromFile("templates/photo.jpg", document);
         contentStream.drawImage(Image, 80 + widthInPoints - 35, 695 - heightInPoints - gap, photoWidth, photoHeight);
 
         contentStream.beginText();

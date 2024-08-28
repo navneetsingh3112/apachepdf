@@ -5,27 +5,26 @@ import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.common.PDRectangle;
-import org.apache.pdfbox.pdmodel.font.PDFont;
-import org.apache.pdfbox.pdmodel.font.PDType1Font;
-import org.apache.pdfbox.pdmodel.font.Standard14Fonts;
+import org.apache.pdfbox.pdmodel.font.PDType0Font;
 import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Map;
 
-public class EnglishPdf {
-
+public class KannadaPdf {
     public static void main(String[] args) throws IOException {
-        EnglishPdf documentCreation = new EnglishPdf();
+        KannadaPdf documentCreation = new KannadaPdf();
 
         PDDocument newDocument = new PDDocument();
         PDPage page1 = documentCreation.createPage(newDocument);
         PDPage page2 = documentCreation.createPage(newDocument);
 
+
         documentCreation.createContent(newDocument, page1);
         documentCreation.createContentForSecondPage(newDocument, page2);
-        String outputFilePath = "templates/files/english.pdf";
+        String outputFilePath = "templates/files/kannada.pdf";
         documentCreation.savePDF(newDocument, outputFilePath);
         newDocument.close();
     }
@@ -36,14 +35,21 @@ public class EnglishPdf {
         return page;
     }
 
-    private void addJLGHeading(PDPageContentStream contentStream, float yOffset) throws IOException {
-        String file="templates/english.json";
+
+    private void addJLGHeading(PDPageContentStream contentStream, float yOffset,PDDocument document) throws IOException {
+        File fontFile = new File("templates/Mallige Normal.ttf");
+        if (!fontFile.exists()) {
+            throw new IOException("Font file not found: " + fontFile.getAbsolutePath());
+        }
+        PDType0Font font = PDType0Font.load(document, fontFile);
+        String file="templates/kannada.json";
         String heading = readLabelFromJson(file, "label_jlg_heading");
-        PDFont font = new PDType1Font(Standard14Fonts.FontName.TIMES_BOLD);
+        heading=heading.replace(" ", "\u200C");
         float stringWidth = font.getStringWidth(heading) * 18/ 1000;
         float centerPosition = stringWidth /2;
         contentStream.beginText();
         contentStream.setFont(font, 8);
+       // contentStream.setLeading(12f);//extra added
         contentStream.newLineAtOffset(centerPosition, yOffset);
         contentStream.showText(heading);
         contentStream.endText();
@@ -64,17 +70,16 @@ public class EnglishPdf {
         contentStream.drawImage(pdImage, 40, 800, 100, 20);
 
         // Adding JLG heading
-        addJLGHeading(contentStream, PDRectangle.A4.getHeight() - 30);
+        addJLGHeading(contentStream, PDRectangle.A4.getHeight() - 30,document);
 
         // Adding branch details
         contentStream.beginText();
-        contentStream.setFont(new PDType1Font(Standard14Fonts.FontName.TIMES_ROMAN), 8);
         contentStream.setLeading(13f);
         contentStream.newLineAtOffset(40, 793);
         contentStream.showText("We understand your world");
         contentStream.newLineAtOffset(10, -50);
 
-        String jsonFilePath = "templates/english.json";
+        String jsonFilePath = "templates/kannada.json";
         String[] jsonKeys = {
                 "label_branch_name_and_code",
                 "label_branch_address",
@@ -154,22 +159,22 @@ public class EnglishPdf {
         contentStream.beginText();
         contentStream.newLineAtOffset(60 + midPoint , newBoxYPosition + height-10);
         String[] additionalLines = {
-                        "label_mobile_no",
-                        "label_father_name",
-                        "label_co_applicant_name",
-                        "label_centre_place_address",
-                        "label_loan_term_in_months",
-                        "label_repayment_frequency",
-                        "label_no_of_instalments_of_repayment",
-                        "label_repayment_date",
-                        "label_repayment_amount_inr",
-                        "label_lending_type",
-                        "label_loan_cycle",
-                        "label_bank_acct_no",
-                        "label_purpose",
-                        "label_beneficiary_ac_name",
-                        "label_bank_name",
-                        "label_netoff_account_amount"
+                "label_mobile_no",
+                "label_father_name",
+                "label_co_applicant_name",
+                "label_centre_place_address",
+                "label_loan_term_in_months",
+                "label_repayment_frequency",
+                "label_no_of_instalments_of_repayment",
+                "label_repayment_date",
+                "label_repayment_amount_inr",
+                "label_lending_type",
+                "label_loan_cycle",
+                "label_bank_acct_no",
+                "label_purpose",
+                "label_beneficiary_ac_name",
+                "label_bank_name",
+                "label_netoff_account_amount"
         };
         for (String key : additionalLines) {
             String value = readLabelFromJson(jsonFilePath, key)+":";
@@ -183,11 +188,10 @@ public class EnglishPdf {
 
     public void createContentForSecondPage(PDDocument document, PDPage page) throws IOException {
         PDPageContentStream contentStream = new PDPageContentStream(document, page);
-        contentStream.setFont(new PDType1Font(Standard14Fonts.FontName.TIMES_ROMAN), 8);
-        String file="templates/english.json";
+        String file="templates/kannada.json";
 
         // Adding JLG heading
-        addJLGHeading(contentStream, PDRectangle.A4.getHeight() - 30);
+        addJLGHeading(contentStream, PDRectangle.A4.getHeight() - 30,document);
         createTable(contentStream, 40, 800, 530, 300, 8, 12, true, true,2);
 
         float width = 17 * 28.3465f;
@@ -244,22 +248,22 @@ public class EnglishPdf {
         contentStream.setLeading(10f);
         contentStream.newLineAtOffset(300, newBoxYPosition + height - 30);
         String[] line1 = {
-                        "label_name_of_insured",
-                        "",
-                        "label_name_of_nominee",
-                        "",
-                        "label_relationship_with_borrower",
-                        "",
-                        "label_age_of_insured",
-                        "",
-                        "label_sum_assured",
-                        "",
-                        "label_insurance_premium",
-                        "",
-                        "label_insurance_start_date",
-                        "",
-                        "label_insurance_end_date"
-                };
+                "label_name_of_insured",
+                "",
+                "label_name_of_nominee",
+                "",
+                "label_relationship_with_borrower",
+                "",
+                "label_age_of_insured",
+                "",
+                "label_sum_assured",
+                "",
+                "label_insurance_premium",
+                "",
+                "label_insurance_start_date",
+                "",
+                "label_insurance_end_date"
+        };
         for (String key : line1) {
             if(key.equals(""))
                 contentStream.newLine();
@@ -278,7 +282,6 @@ public class EnglishPdf {
 
         // Adding key terms and conditions
         contentStream.beginText();
-        contentStream.setFont(new PDType1Font(Standard14Fonts.FontName.TIMES_ROMAN), 8);
         contentStream.setLeading(11f);
         float textStartY = newBoxYPosition - 10;
         contentStream.newLineAtOffset(40, textStartY);
@@ -289,7 +292,6 @@ public class EnglishPdf {
 
         // Adding grievance redressal
         contentStream.beginText();
-        contentStream.setFont(new PDType1Font(Standard14Fonts.FontName.TIMES_ROMAN), 8);
         contentStream.setLeading(11f);
         contentStream.newLineAtOffset(40, 150);
         String value1= readLabelFromJson(file, "label_grievance_redressal");
@@ -311,7 +313,6 @@ public class EnglishPdf {
         contentStream.stroke();
 
         contentStream.beginText();
-        contentStream.setFont(new PDType1Font(Standard14Fonts.FontName.TIMES_ROMAN), 8);
         contentStream.setLeading(11f);
         contentStream.newLineAtOffset(50, 120);
         String value3= readLabelFromJson(file, "label_nodal_officer");
@@ -319,7 +320,6 @@ public class EnglishPdf {
         contentStream.endText();
 
         contentStream.beginText();
-        contentStream.setFont(new PDType1Font(Standard14Fonts.FontName.TIMES_ROMAN), 8);
         contentStream.setLeading(11f);
         contentStream.newLineAtOffset(320, 120);
         String value4= readLabelFromJson(file, "label_contact_details");
@@ -328,36 +328,34 @@ public class EnglishPdf {
 
         contentStream.stroke();
         contentStream.close();
-
     }
 
 
     private void addTermsAndConditions(PDPageContentStream contentStream, float x, float y) throws IOException {
-            ObjectMapper objectMapper = new ObjectMapper();
-            JsonNode rootNode = objectMapper.readTree(new File("templates/termsandconditions_english.json"));
-            JsonNode termsAndConditions = rootNode.get("termsAndConditions");
-            contentStream.beginText();
-            contentStream.setFont(new PDType1Font(Standard14Fonts.FontName.TIMES_ROMAN), 8);
-            contentStream.setLeading(12f);
-            contentStream.newLineAtOffset(x, y);
+        ObjectMapper objectMapper = new ObjectMapper();
+        JsonNode rootNode = objectMapper.readTree(new File("templates/termsandconditions_kannada.json"));
+        JsonNode termsAndConditions = rootNode.get("termsAndConditions");
+        contentStream.beginText();
+        contentStream.setLeading(12f);
+        contentStream.newLineAtOffset(x, y);
 
-            if (termsAndConditions.isArray()) {
-                for (JsonNode term : termsAndConditions) {
-                    String terms = term.asText();
-                    contentStream.showText(terms);
-                    contentStream.newLine();
-                }
+        if (termsAndConditions.isArray()) {
+            for (JsonNode term : termsAndConditions) {
+                String terms = term.asText();
+                contentStream.showText(terms);
+                contentStream.newLine();
             }
-
-            contentStream.endText();
         }
+
+        contentStream.endText();
+    }
 
 
     private void createTable(PDPageContentStream contentStream, float x, float y, float tableWidth, float tableHeight, int rows, int cols, boolean withHeader, boolean withFooter,int page) throws IOException {
         float rowHeight = tableHeight / rows;
 
-        float firstColWidth = tableWidth * 0.05f;
-        float lastColWidth = tableWidth * 0.2f;
+        float firstColWidth = tableWidth * 0.08f;
+        float lastColWidth = tableWidth * 0.12f;
         float remainingTableWidth = tableWidth - firstColWidth - lastColWidth;
         float remainingColWidth = remainingTableWidth / (cols - 3);
         contentStream.setLineWidth(1);
@@ -391,9 +389,8 @@ public class EnglishPdf {
         if (withHeader) {
             // Add text to the header row
             contentStream.beginText();
-            contentStream.setFont(new PDType1Font(Standard14Fonts.FontName.TIMES_ROMAN), 8);
             contentStream.setLeading(11f);
-            String jsonFilePath = "templates/english.json";
+            String jsonFilePath = "templates/kannada.json";
             String[] table_headers = {
                     "label_inst_number",
                     "label_repay_date",
@@ -406,7 +403,6 @@ public class EnglishPdf {
                     "label_amount_collected_on",
                     "label_emp_code",
                     "label_emp_signature"
-
             };
 
             float textY = y - rowHeight / 3;
@@ -441,20 +437,18 @@ public class EnglishPdf {
             }
             contentStream.endText();
         }
-                if (withFooter) {
-                    contentStream.beginText();
-                    contentStream.setFont(new PDType1Font(Standard14Fonts.FontName.TIMES_ROMAN), 8);
-                    contentStream.setLeading(11f);
-                    float textX = x + 5;
-                    float textY = y - tableHeight - rowHeight + 50;
-                    contentStream.newLineAtOffset(textX, textY);
-                    String jsonFilePath= "templates/english.json";
-                    String value = readLabelFromJson(jsonFilePath, "label_total");
-                    contentStream.showText(value);
-
-                    contentStream.endText();
-                }
+        if (withFooter) {
+            contentStream.beginText();
+            contentStream.setLeading(11f);
+            float textX = x + 5;
+            float textY = y - tableHeight - rowHeight + 50;
+            contentStream.newLineAtOffset(textX, textY);
+            String jsonFilePath= "templates/kannada.json";
+            String value = readLabelFromJson(jsonFilePath, "label_total");
+            contentStream.showText(value);
+            contentStream.endText();
         }
+    }
 
     public void savePDF(PDDocument document, String filePath) throws IOException {
         document.save(filePath);
