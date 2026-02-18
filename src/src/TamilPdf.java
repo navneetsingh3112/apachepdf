@@ -10,6 +10,7 @@ import org.apache.pdfbox.pdmodel.font.PDType1Font;
 import org.apache.pdfbox.pdmodel.font.Standard14Fonts;
 import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -42,16 +43,19 @@ public class TamilPdf {
 
     private void addJLGHeading(PDPageContentStream contentStream, float yOffset,PDDocument document) throws IOException {
         File fontFile = new File("templates/Nirmala.ttf");
-        PDType0Font font = PDType0Font.load(document, fontFile);
-        String file="templates/tamil.json";
-        String heading = readLabelFromJson(file, "label_jlg_heading");
-        float stringWidth = font.getStringWidth(heading) * 18/ 1000;
-        float centerPosition = stringWidth /2;
-        contentStream.beginText();
-        contentStream.setFont(font, 8);
-        contentStream.newLineAtOffset(centerPosition, yOffset);
-        contentStream.showText(heading);
-        contentStream.endText();
+        // Embed full font without subsetting to avoid PDFBox 3.0.6 TTF subsetting issues
+        try (FileInputStream fis = new FileInputStream(fontFile)) {
+            PDType0Font font = PDType0Font.load(document, fis, false);
+            String file="templates/tamil.json";
+            String heading = readLabelFromJson(file, "label_jlg_heading");
+            float stringWidth = font.getStringWidth(heading) * 18/ 1000;
+            float centerPosition = stringWidth /2;
+            contentStream.beginText();
+            contentStream.setFont(font, 8);
+            contentStream.newLineAtOffset(centerPosition, yOffset);
+            contentStream.showText(heading);
+            contentStream.endText();
+        }
     }
 
     public String readLabelFromJson(String filePath, String key) throws IOException {
