@@ -5,6 +5,7 @@ import org.apache.pdfbox.pdmodel.common.PDRectangle;
 import org.apache.pdfbox.pdmodel.font.PDType0Font;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 
 public class Test {
@@ -32,8 +33,11 @@ public class Test {
         contentStream.beginText();
 
         // Load a font that supports Kannada characters
-        PDType0Font font = PDType0Font.load(document, new File("templates/Mallige Normal.ttf"));
-        contentStream.setFont(font, 12);
+        File fontFile = new File("templates/Mallige Normal.ttf");
+        try (FileInputStream fis = new FileInputStream(fontFile)) {
+            PDType0Font font = PDType0Font.load(document, fis, false);
+            contentStream.setFont(font, 12);
+        }
 
         // Set the initial position for the text
         contentStream.newLineAtOffset(50, 750);

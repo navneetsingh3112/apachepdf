@@ -8,6 +8,7 @@ import org.apache.pdfbox.pdmodel.font.PDType0Font;
 import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 
 public class TamilDocument {
@@ -21,7 +22,7 @@ public class TamilDocument {
 
         documentCreation.createContent(newDocument, page1);
         documentCreation.createContentForSecondPage(newDocument, page2);
-        String outputFilePath = "c:/Users/Bhavani K/Desktop/TAMIL.pdf";
+        String outputFilePath = "templates/files/Tamil.pdf";
         documentCreation.savePDF(newDocument, outputFilePath);
 
         newDocument.close();
@@ -35,22 +36,25 @@ public class TamilDocument {
 
     private void addJLGHeading(PDPageContentStream contentStream, float yOffset,PDDocument document) throws IOException {
         String heading = "JLG/SHG/IL - கடன் அட்டை மற்றும் உண்மை தாள்";
-        File fontFile = new File("C:\\Users\\Bhavani K\\Desktop\\Lohit-Tamil.ttf");
-        PDType0Font font = PDType0Font.load(document, fontFile);
-        float stringWidth = font.getStringWidth(heading) * 15/ 1000;
-        float centerPosition = stringWidth /2;
-        contentStream.beginText();
-        contentStream.setFont(font, 8);
-        contentStream.newLineAtOffset(centerPosition, yOffset);
-        contentStream.showText(heading);
-        contentStream.endText();
+        File fontFile = new File("templates/Nirmala.ttf");
+        // Embed full font without subsetting to avoid PDFBox 3.0.6 TTF subsetting issues
+        try (FileInputStream fis = new FileInputStream(fontFile)) {
+            PDType0Font font = PDType0Font.load(document, fis, false);
+            float stringWidth = font.getStringWidth(heading) * 15/ 1000;
+            float centerPosition = stringWidth /2;
+            contentStream.beginText();
+            contentStream.setFont(font, 8);
+            contentStream.newLineAtOffset(centerPosition, yOffset);
+            contentStream.showText(heading);
+            contentStream.endText();
+        }
     }
 
     public void createContent(PDDocument document, PDPage page) throws IOException {
         PDPageContentStream contentStream = new PDPageContentStream(document, page);
 
         // Adding image
-        PDImageXObject pdImage = PDImageXObject.createFromFile("C:\\Users\\Bhavani K\\Downloads\\image (1).png", document);
+        PDImageXObject pdImage = PDImageXObject.createFromFile("templates/HDFC logo.png", document);
         contentStream.drawImage(pdImage, 40, 800, 100, 20);
 
         // Adding JLG heading
@@ -87,7 +91,7 @@ public class TamilDocument {
         float gap = -60;
         contentStream.addRect(80 + widthInPoints - 35, 695 - heightInPoints-gap, photoWidth, photoHeight);
         contentStream.stroke();
-        PDImageXObject Image = PDImageXObject.createFromFile("C:\\Users\\Bhavani K\\Downloads\\photo.jpg", document);
+        PDImageXObject Image = PDImageXObject.createFromFile("templates/photo.jpg", document);
         contentStream.drawImage(Image, 80 + widthInPoints - 35, 695 - heightInPoints - gap, photoWidth, photoHeight);
 
         contentStream.beginText();
@@ -394,25 +398,27 @@ public class TamilDocument {
 
 
                 };
-                File fontFile = new File("C:\\Users\\Bhavani K\\Desktop\\Nirmala.ttf");
-                PDType0Font font = PDType0Font.load(document, fontFile);
-                float fontSize = 8f;
-                for (int i = 0; i < cellContent1.length; i++) {
-                    for (int j = 0; j < cellContent1[i].length; j++) {
-                        float cellWidth = tableWidth / cols;
-                        float textWidth = font.getStringWidth(cellContent1[i][j]) / 1000 * fontSize;
-                        float text1 = x - 13 + j * cellWidth + (cellWidth - textWidth) / 20; // center alignment
-                        float text2 = y - (i + 1) * rowHeight + rowHeight / 50;
-                        contentStream.beginText();
-                        contentStream.setFont(font, fontSize);
-                        contentStream.newLineAtOffset(text1, text2 - 20);
-                        if (j == 0 && i != 10) {
-                            contentStream.newLineAtOffset(20, 0);
-                            contentStream.showText(cellContent1[i][j]);
-                        } else {
-                            contentStream.showText(cellContent1[i][j]);
+                File fontFile = new File("templates/Nirmala.ttf");
+                try (FileInputStream fis = new FileInputStream(fontFile)) {
+                    PDType0Font font = PDType0Font.load(document, fis, false);
+                    float fontSize = 8f;
+                    for (int i = 0; i < cellContent1.length; i++) {
+                        for (int j = 0; j < cellContent1[i].length; j++) {
+                            float cellWidth = tableWidth / cols;
+                            float textWidth = font.getStringWidth(cellContent1[i][j]) / 1000 * fontSize;
+                            float text1 = x - 13 + j * cellWidth + (cellWidth - textWidth) / 20; // center alignment
+                            float text2 = y - (i + 1) * rowHeight + rowHeight / 50;
+                            contentStream.beginText();
+                            contentStream.setFont(font, fontSize);
+                            contentStream.newLineAtOffset(text1, text2 - 20);
+                            if (j == 0 && i != 10) {
+                                contentStream.newLineAtOffset(20, 0);
+                                contentStream.showText(cellContent1[i][j]);
+                            } else {
+                                contentStream.showText(cellContent1[i][j]);
+                            }
+                            contentStream.endText();
                         }
-                        contentStream.endText();
                     }
                 }
             }
@@ -426,26 +432,28 @@ public class TamilDocument {
                         {"15", "01-06-2022", "25000", "5000", "2500", "2500", "Paid", "2500", "01-06-2023", "1234", ""},
                         { "","", "20000", "5000", "2000", "2000", "Paid", "2000", "01-07-2023", "1234", ""},
                 };
-                File fontFile = new File("C:\\Users\\Bhavani K\\Desktop\\Nirmala.ttf");
-                PDType0Font font = PDType0Font.load(document, fontFile);
-                float fontSize = 8f;
-                for (int i = 0; i < cellContent.length; i++) {
-                    for (int j = 0; j < cellContent[i].length; j++) {
-                        float cellWidth = tableWidth / cols;
-                        float textWidth = font.getStringWidth(cellContent[i][j]) / 1000 * fontSize;
-                        float text1 = x - 13 + j * cellWidth + (cellWidth - textWidth) / 20; // center alignment
-                        float text2 = y - (i + 1) * rowHeight + rowHeight / 50;
-                        contentStream.beginText();
-                        contentStream.setFont(font, fontSize);
-                        contentStream.newLineAtOffset(text1, text2 - 20);
-                        if (j == 0 && i != 10) {
-                            contentStream.newLineAtOffset(20, 0);
-                            contentStream.showText(cellContent[i][j]);
-                        } else {
-                            contentStream.showText(cellContent[i][j]);
-                        }
-                        contentStream.endText();
+                File fontFile = new File("templates/Nirmala.ttf");
+                try (FileInputStream fis = new FileInputStream(fontFile)) {
+                    PDType0Font font = PDType0Font.load(document, fis, false);
+                    float fontSize = 8f;
+                    for (int i = 0; i < cellContent.length; i++) {
+                        for (int j = 0; j < cellContent[i].length; j++) {
+                            float cellWidth = tableWidth / cols;
+                            float textWidth = font.getStringWidth(cellContent[i][j]) / 1000 * fontSize;
+                            float text1 = x - 13 + j * cellWidth + (cellWidth - textWidth) / 20; // center alignment
+                            float text2 = y - (i + 1) * rowHeight + rowHeight / 50;
+                            contentStream.beginText();
+                            contentStream.setFont(font, fontSize);
+                            contentStream.newLineAtOffset(text1, text2 - 20);
+                            if (j == 0 && i != 10) {
+                                contentStream.newLineAtOffset(20, 0);
+                                contentStream.showText(cellContent[i][j]);
+                            } else {
+                                contentStream.showText(cellContent[i][j]);
+                            }
+                            contentStream.endText();
 
+                        }
                     }
                 }
             }

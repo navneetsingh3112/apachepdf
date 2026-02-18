@@ -9,6 +9,7 @@ import org.apache.pdfbox.pdmodel.font.PDType0Font;
 import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Map;
@@ -41,18 +42,21 @@ public class MarathiPdf {
         if (!fontFile.exists()) {
             throw new IOException("Font file not found: " + fontFile.getAbsolutePath());
         }
-        PDType0Font font = PDType0Font.load(document, fontFile);
-        String file="templates/marathi.json";
-        String heading = readLabelFromJson(file, "label_jlg_heading");
-        heading=heading.replace(" ", "\u200C");
-        float stringWidth = font.getStringWidth(heading) * 18/ 1000;
-        float centerPosition = stringWidth /2;
-        contentStream.beginText();
-        contentStream.setFont(font, 8);
-       // contentStream.setLeading(12f);//extra added
-        contentStream.newLineAtOffset(centerPosition, yOffset);
-        contentStream.showText(heading);
-        contentStream.endText();
+        // Work around PDFBox 3.0.6 TTF subsetting bug by embedding the full font (no subsetting)
+        try (FileInputStream fis = new FileInputStream(fontFile)) {
+            PDType0Font font = PDType0Font.load(document, fis, false);
+            String file="templates/marathi.json";
+            String heading = readLabelFromJson(file, "label_jlg_heading");
+            heading=heading.replace(" ", "\u200C");
+            float stringWidth = font.getStringWidth(heading) * 18/ 1000;
+            float centerPosition = stringWidth /2;
+            contentStream.beginText();
+            contentStream.setFont(font, 8);
+           // contentStream.setLeading(12f);//extra added
+            contentStream.newLineAtOffset(centerPosition, yOffset);
+            contentStream.showText(heading);
+            contentStream.endText();
+        }
     }
 
     public String readLabelFromJson(String filePath, String key) throws IOException {
