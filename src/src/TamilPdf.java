@@ -41,7 +41,7 @@ public class TamilPdf {
     }
 
     private void addJLGHeading(PDPageContentStream contentStream, float yOffset,PDDocument document) throws IOException {
-        File fontFile = new File("C:\\Users\\Bhavani K\\downloads\\NotoSansTamil-Medium.ttf");
+        File fontFile = new File("templates/Nirmala.ttf");
         PDType0Font font = PDType0Font.load(document, fontFile);
         String file="templates/tamil.json";
         String heading = readLabelFromJson(file, "label_jlg_heading");
@@ -107,7 +107,7 @@ public class TamilPdf {
         float gap = -60;
         contentStream.addRect(80 + widthInPoints - 35, 695 - heightInPoints-gap, photoWidth, photoHeight);
         contentStream.stroke();
-        PDImageXObject Image = PDImageXObject.createFromFile("C:\\Users\\Bhavani K\\Downloads\\photo.jpg", document);
+        PDImageXObject Image = PDImageXObject.createFromFile("templates/photo.jpg", document);
         contentStream.drawImage(Image, 80 + widthInPoints - 35, 695 - heightInPoints - gap, photoWidth, photoHeight);
 
         contentStream.beginText();

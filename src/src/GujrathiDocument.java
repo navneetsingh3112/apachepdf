@@ -19,7 +19,7 @@ public class GujrathiDocument{
 
         documentCreation.createContent(newDocument, page1);
         documentCreation.createContentForSecondPage(newDocument, page2);
-        String outputFilePath = "c:/Users/Bhavani K/Desktop/Gujrathi.pdf";
+        String outputFilePath = "templates/files/Gujrathi.pdf";
         documentCreation.savePDF(newDocument, outputFilePath);
 
         newDocument.close();
@@ -33,7 +33,7 @@ public class GujrathiDocument{
 
     private void addJLGHeading(PDPageContentStream contentStream, float yOffset,PDDocument document) throws IOException {
         String heading = "JLG/SHG/IL - લોન કાર્ડ કમ ફેક્ટ શીટ";
-        File fontFile = new File("C:\\Users\\Bhavani K\\Downloads\\Nirmala.ttf");
+        File fontFile = new File("templates/Nirmala.ttf");
         PDType0Font font = PDType0Font.load(document, fontFile);
         float stringWidth = font.getStringWidth(heading) * 30/ 1000;
         float centerPosition = stringWidth /2;
@@ -48,7 +48,7 @@ public class GujrathiDocument{
         PDPageContentStream contentStream = new PDPageContentStream(document, page);
 
         // Adding image
-        PDImageXObject pdImage = PDImageXObject.createFromFile("C:\\Users\\Bhavani K\\Downloads\\image (1).png", document);
+        PDImageXObject pdImage = PDImageXObject.createFromFile("templates/HDFC logo.png", document);
         contentStream.drawImage(pdImage, 40, 800, 100, 20);
 
         // Adding JLG heading
@@ -82,7 +82,7 @@ public class GujrathiDocument{
         float gap = -60;
         contentStream.addRect(80 + widthInPoints-35, 695 - heightInPoints-gap, photoWidth, photoHeight);
         contentStream.stroke();
-        PDImageXObject Image = PDImageXObject.createFromFile("C:\\Users\\Bhavani K\\Downloads\\photo.jpg", document);
+        PDImageXObject Image = PDImageXObject.createFromFile("templates/photo.jpg", document);
         contentStream.drawImage(Image, 45+ widthInPoints , 695 - heightInPoints - gap, photoWidth, photoHeight);
 
         contentStream.beginText();
@@ -388,7 +388,7 @@ public class GujrathiDocument{
 
 
                 };
-                File fontFile = new File("C:\\Users\\Bhavani K\\Desktop\\Nirmala.ttf");
+                File fontFile = new File("templates/Nirmala.ttf");
                 PDType0Font font = PDType0Font.load(document, fontFile);
                 float fontSize = 8f;
                 for (int i = 0; i < cellContent1.length; i++) {
@@ -420,7 +420,7 @@ public class GujrathiDocument{
                         {"15", "01-06-2022", "25000", "5000", "2500", "2500", "Paid", "2500", "01-06-2023", "1234", ""},
                         { "","", "20000", "5000", "2000", "2000", "Paid", "2000", "01-07-2023", "1234", ""},
                 };
-                File fontFile = new File("C:\\Users\\Bhavani K\\Desktop\\Nirmala.ttf");
+                File fontFile = new File("templates/Nirmala.ttf");
                 PDType0Font font = PDType0Font.load(document, fontFile);
                 float fontSize = 8f;
                 for (int i = 0; i < cellContent.length; i++) {
